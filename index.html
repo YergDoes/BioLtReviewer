@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biology 2 FA Study Guide — Mendelian Inheritance & Extensions</title>
+<style>
+  /* ========== RESET & BASE ========== */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --purple: #6b21a8;
+    --purple-light: #a855f7;
+    --purple-bg: #f3e8ff;
+    --green: #15803d;
+    --green-bg: #dcfce7;
+    --amber: #b45309;
+    --amber-bg: #fef3c7;
+    --blue: #1d4ed8;
+    --blue-bg: #dbeafe;
+    --red: #b91c1c;
+    --red-bg: #fee2e2;
+    --teal: #0f766e;
+    --teal-bg: #ccfbf1;
+    --pink: #9d174d;
+    --pink-bg: #fce7f3;
+    --gray: #374151;
+    --gray-bg: #f9fafb;
+    --border: #e5e7eb;
+  }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    line-height: 1.65;
+    color: #1f2937;
+    background: #f8fafc;
+    padding-bottom: 4rem;
+  }
+
+  /* ========== HEADER ========== */
+  header {
+    background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a855f7 100%);
+    color: #fff;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(76,29,149,.35);
+  }
+  header h1 { font-size: clamp(1.5rem, 4vw, 2.4rem); margin-bottom: .4rem; letter-spacing: -.5px; }
+  header p { opacity: .92; font-size: clamp(.85rem, 2vw, 1.05rem); max-width: 780px; margin: 0 auto; }
+  header .badge {
+    display: inline-block; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px; padding: .2rem .9rem; font-size: .78rem; margin-top: .8rem; letter-spacing: .5px;
+  }
+
+  /* ========== NAV ========== */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem;
+    padding: .45rem .5rem;
+  }
+  nav a {
+    text-decoration: none; color: var(--gray); font-size: .74rem; font-weight: 600;
+    padding: .35rem .55rem; border-radius: 8px; transition: .2s; white-space: nowrap;
+  }
+  nav a:hover, nav a.active { background: var(--purple-bg); color: var(--purple); }
+
+  /* ========== LAYOUT ========== */
+  main { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  section { margin-bottom: 2.5rem; }
+  section > h2 {
+    font-size: 1.3rem; color: var(--purple);
+    border-bottom: 3px solid var(--purple-light);
+    padding-bottom: .4rem; margin-bottom: 1.1rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  section > h2 .num {
+    background: var(--purple); color: #fff; width: 30px; height: 30px;
+    border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    font-size: .82rem; flex-shrink: 0;
+  }
+  h3 { font-size: 1.02rem; color: #4c1d95; margin: 1.2rem 0 .5rem; }
+  h4 { font-size: .93rem; color: #6b21a8; margin: .9rem 0 .35rem; }
+  p { margin-bottom: .7rem; }
+  ul, ol { margin: .4rem 0 .8rem 1.4rem; }
+  li { margin-bottom: .3rem; }
+  strong { color: #111827; }
+  em { color: #4c1d95; }
+
+  /* ========== CARDS & BOXES ========== */
+  .card {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.1rem 1.3rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  }
+  .box {
+    border-left: 5px solid var(--purple); background: var(--purple-bg);
+    padding: .9rem 1.1rem; border-radius: 0 10px 10px 0; margin: .8rem 0;
+  }
+  .box.green { border-color: var(--green); background: var(--green-bg); }
+  .box.amber { border-color: var(--amber); background: var(--amber-bg); }
+  .box.blue { border-color: var(--blue); background: var(--blue-bg); }
+  .box.red { border-color: var(--red); background: var(--red-bg); }
+  .box.teal { border-color: var(--teal); background: var(--teal-bg); }
+  .box.pink { border-color: var(--pink); background: var(--pink-bg); }
+  .box .box-title { font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; margin-bottom: .3rem; }
+  .box.purple .box-title { color: var(--purple); }
+  .box.green .box-title { color: var(--green); }
+  .box.amber .box-title { color: var(--amber); }
+  .box.blue .box-title { color: var(--blue); }
+  .box.red .box-title { color: var(--red); }
+  .box.teal .box-title { color: var(--teal); }
+  .box.pink .box-title { color: var(--pink); }
+
+  /* ========== TABLES ========== */
+  .table-wrap { overflow-x: auto; margin: .8rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  th, td { border: 1px solid var(--border); padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  th { background: var(--purple-bg); color: #4c1d95; font-weight: 700; }
+  tr:nth-child(even) td { background: #faf5ff; }
+  caption { caption-side: bottom; font-size: .76rem; color: #6b7280; padding-top: .3rem; font-style: italic; }
+
+  /* ========== PUNNETT SQUARE ========== */
+  .punnett {
+    display: inline-grid; gap: 2px; background: #4c1d95; border: 2px solid #4c1d95;
+    border-radius: 6px; overflow: hidden; margin: .6rem 0; font-size: .86rem;
+  }
+  .punnett .cell {
+    background: #fff; padding: .5rem .65rem; text-align: center; min-width: 60px; font-weight: 600;
+  }
+  .punnett .cell.header { background: var(--purple-bg); color: var(--purple); }
+  .punnett .cell.green { background: var(--green-bg); color: var(--green); }
+  .punnett .cell.amber { background: var(--amber-bg); color: var(--amber); }
+  .punnett .cell.red { background: var(--red-bg); color: var(--red); }
+  .punnett .cell.blue { background: var(--blue-bg); color: var(--blue); }
+  .punnett .cell.pink { background: var(--pink-bg); color: var(--pink); }
+
+  /* ========== FLASHCARDS ========== */
+  .flashcard-controls {
+    display: flex; flex-wrap: wrap; gap: .5rem; align-items: center;
+    margin-bottom: 1rem; padding: .7rem 1rem; background: #fff; border: 1px solid var(--border);
+    border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  }
+  .flashcard-controls button {
+    background: var(--purple); color: #fff; border: none; border-radius: 8px;
+    padding: .45rem .9rem; font-size: .8rem; font-weight: 600; cursor: pointer;
+    transition: .2s; font-family: inherit;
+  }
+  .flashcard-controls button:hover { background: #581c87; }
+  .flashcard-controls button.alt { background: #fff; color: var(--purple); border: 1.5px solid var(--purple); }
+  .flashcard-controls button.alt:hover { background: var(--purple-bg); }
+  .flashcard-controls .count { font-size: .78rem; color: #6b7280; margin-left: auto; font-weight: 600; }
+
+  .flashcard-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: .9rem;
+  }
+  .flashcard {
+    perspective: 1200px; height: 230px; cursor: pointer; outline: none;
+  }
+  .flashcard-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform .55s cubic-bezier(.4,.2,.2,1);
+    transform-style: preserve-3d;
+  }
+  .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-face {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: 14px; padding: .9rem 1rem; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08); border: 2px solid transparent;
+  }
+  .flashcard-front {
+    background: linear-gradient(145deg, #fff 0%, #faf5ff 100%);
+    border-color: var(--purple-light); color: #4c1d95;
+  }
+  .flashcard-back {
+    background: linear-gradient(145deg, #4c1d95 0%, #6b21a8 100%);
+    color: #fff; transform: rotateY(180deg);
+    border-color: #7c3aed; font-size: .82rem; line-height: 1.45;
+  }
+  .flashcard-front .fc-label {
+    font-size: .62rem; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--purple-light); font-weight: 700; margin-bottom: .4rem;
+  }
+  .flashcard-front .fc-q { font-size: .9rem; font-weight: 700; line-height: 1.35; }
+  .flashcard-back .fc-a { font-size: .82rem; }
+  .flashcard-back .fc-a strong { color: #fde68a; }
+  .flashcard-front .fc-hint {
+    margin-top: .5rem; font-size: .66rem; color: #a78bfa; font-weight: 600;
+  }
+
+  /* ========== PRACTICE PROBLEMS ========== */
+  .problem {
+    background: #fff; border: 1px solid var(--border); border-left: 5px solid var(--blue);
+    border-radius: 0 10px 10px 0; padding: .9rem 1.1rem; margin-bottom: .9rem;
+  }
+  .problem .q { font-weight: 600; margin-bottom: .4rem; font-size: .92rem; }
+  .problem details { margin-top: .4rem; }
+  .problem summary {
+    cursor: pointer; font-size: .78rem; font-weight: 700; color: var(--blue);
+    padding: .3rem .6rem; background: var(--blue-bg); border-radius: 6px;
+    display: inline-block; user-select: none;
+  }
+  .problem summary:hover { background: #bfdbfe; }
+  .problem .solution {
+    margin-top: .6rem; padding: .7rem .9rem; background: var(--gray-bg);
+    border-radius: 8px; font-size: .84rem; border: 1px dashed var(--border);
+  }
+  .problem .solution .step { margin-bottom: .35rem; }
+  .problem .solution .step b { color: var(--purple); }
+
+  /* ========== MISC ========== */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+  pre.ascii {
+    font-family: 'Courier New', monospace; font-size: .78rem; line-height: 1.55;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: .7rem 1rem; overflow-x: auto; margin: .5rem 0;
+  }
+
+  footer {
+    text-align: center; font-size: .76rem; color: #9ca3af;
+    padding: 2rem 1rem 1rem; border-top: 1px solid var(--border); margin-top: 2rem;
+  }
+
+  /* ========== PRINT ========== */
+  @media print {
+    nav, .flashcard-controls, footer { display: none; }
+    body { background: #fff; }
+    header { background: #4c1d95 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .flashcard { height: auto; perspective: none; page-break-inside: avoid; }
+    .flashcard-inner { transform: none !important; }
+    .flashcard-face { position: relative; backface-visibility: visible; transform: none !important; }
+    .flashcard-back { margin-top: .5rem; }
+    .problem .solution { display: block !important; }
+    details { display: block; }
+    details > summary { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧬 Biology 2 FA Study Guide</h1>
+  <p>Mendelian Inheritance &amp; Extensions — Degrees of Dominance, Multiple Allelism, Polygenic Inheritance &amp; Sex-Linked Traits</p>
+  <span class="badge">Based on Q2.M1 &amp; Q2.M2 Modules · Formative Assessment Reviewer</span>
+</header>
+
+<nav id="nav">
+  <a href="#mendel">1. Mendel &amp; Vocab</a>
+  <a href="#laws">2. Laws &amp; Probability</a>
+  <a href="#punnett">3. Punnett &amp; Testcross</a>
+  <a href="#forked">4. Forked-Line</a>
+  <a href="#dominance">5. Dominance</a>
+  <a href="#multiple">6. Multiple Alleles</a>
+  <a href="#polygenic">7. Polygenic</a>
+  <a href="#sexlinked">8. Sex-Linked</a>
+  <a href="#practice">9. Practice</a>
+  <a href="#flashcards">10. Flashcards</a>
+</nav>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- SECTION 1: MENDEL & VOCABULARY                                 -->
+<!-- ============================================================ -->
+<section id="mendel">
+  <h2><span class="num">1</span> Mendel's Approach &amp; Core Vocabulary</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Explain Mendel's contribution to genetics.</li>
+      <li>Distinguish genes, alleles, genotype, and phenotype.</li>
+      <li>Differentiate homozygous and heterozygous conditions.</li>
+    </ul>
+  </div>
+
+  <h3>Why Are We Talking About Coins?</h3>
+  <div class="card">
+    <p>An event is <strong>random</strong> when the outcome of a previous event <strong>does not affect</strong> the outcome of the succeeding event. A coin toss is the classic example: if the first toss is heads, the second toss is still 50% heads and 50% tails.</p>
+    <p>Mendelian inheritance involves <strong>random events + probability</strong>. A heterozygous pea plant (<em>Gg</em>) produces:</p>
+    <ul>
+      <li><strong>G</strong> gametes → 1/2 of the time</li>
+      <li><strong>g</strong> gametes → 1/2 of the time</li>
+    </ul>
+    <p>When two gametes unite, probability helps us predict the possible genotype of the offspring.</p>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🪙 Coin Toss Examples</div>
+      <ul style="margin-bottom:0">
+        <li>P(Head AND Head) = 1/2 × 1/2 = <strong>1/4 (25%)</strong></li>
+        <li>P(one head AND one tail) = (1/2 × 1/2) + (1/2 × 1/2) = 1/4 + 1/4 = <strong>1/2 (50%)</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Gregor Johann Mendel — Father of Modern Genetics</h3>
+  <div class="card">
+    <p>Studied inheritance using pea plants (<em>Pisum sativum</em>). His experiments investigated:</p>
+    <ul>
+      <li>What is inherited?</li>
+      <li>How is hereditary information inherited?</li>
+      <li>Why do offspring show different traits?</li>
+      <li>What role does probability play in heredity?</li>
+    </ul>
+  </div>
+
+  <h3>Why Pea Plants?</h3>
+  <div class="box green">
+    <div class="box-title">✅ Advantages</div>
+    <ul style="margin-bottom:0">
+      <li>Easy to grow</li>
+      <li>Produced many offspring</li>
+      <li>Relatively short generation time</li>
+      <li>Had many contrasting traits</li>
+      <li>Could self-fertilize</li>
+      <li>Could be cross-pollinated in a controlled manner</li>
+    </ul>
+  </div>
+
+  <h3>Generations in a Genetic Cross</h3>
+  <div class="card">
+    <div class="ascii">
+P GENERATION (Original Parents)
+Purple × White
+        ↓
+F₁ GENERATION (First Offspring)
+ALL PURPLE
+        ↓
+F₁ × F₁
+        ↓
+F₂ GENERATION (Offspring of F₁)
+3 PURPLE : 1 WHITE
+    </div>
+    <p><strong>Where did the white trait go in the F₁ generation?</strong> It was <strong>masked</strong>, not destroyed. It reappeared in the F₂ generation.</p>
+  </div>
+
+  <h3>Mendel's "Factors" → Genes &amp; Alleles</h3>
+  <div class="card">
+    <p>Mendel proposed discrete hereditary units called <strong>factors</strong>. Today, we call them <strong>GENES</strong>.</p>
+    <p>A gene can have alternative forms called <strong>ALLELES</strong>.</p>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔬 Example — Flower Color</div>
+      <ul style="margin-bottom:0">
+        <li><strong>Gene:</strong> flower color</li>
+        <li><strong>Alleles:</strong> <em>P</em> = purple, <em>p</em> = white</li>
+        <li>An individual receives <strong>one allele from each parent</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Genotype vs. Phenotype</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>🧬 Genotype</h4>
+      <p>The <strong>combination of alleles</strong> possessed by an organism.</p>
+      <p>Examples: <em>PP</em>, <em>Pp</em>, <em>pp</em></p>
+    </div>
+    <div class="card">
+      <h4>👁️ Phenotype</h4>
+      <p>The <strong>observable characteristic</strong> of an organism.</p>
+      <p>Examples: Purple flowers, White flowers</p>
+    </div>
+  </div>
+
+  <h3>Homozygous vs. Heterozygous</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>Definition</th><th>Examples</th><th>Phenotype (Flower Color)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Homozygous dominant</strong></td><td>Two identical dominant alleles</td><td><em>PP</em></td><td>Purple</td></tr>
+        <tr><td><strong>Heterozygous</strong></td><td>Two different alleles</td><td><em>Pp</em></td><td>Purple</td></tr>
+        <tr><td><strong>Homozygous recessive</strong></td><td>Two identical recessive alleles</td><td><em>pp</em></td><td>White</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: LAWS & PROBABILITY                                  -->
+<!-- ============================================================ -->
+<section id="laws">
+  <h2><span class="num">2</span> Mendel's Laws &amp; Probability</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Explain the Law of Segregation and Law of Independent Assortment.</li>
+      <li>Apply the multiplication and addition rules of probability.</li>
+    </ul>
+  </div>
+
+  <h3>Law of Segregation (Mendel's First Law)</h3>
+  <div class="box purple">
+    <div class="box-title">📜 Definition</div>
+    The <strong>two alleles for a gene separate during gamete formation</strong>, so each gamete receives only <strong>one allele</strong>.
+  </div>
+  <div class="card">
+    <p><strong>Example:</strong> <em>Gg</em> → <em>G</em> OR <em>g</em> (50% each).</p>
+    <p><strong>Meiotic basis:</strong> Connected to the <strong>separation of homologous chromosomes during Meiosis I</strong>.</p>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔬 Seed Color Example</div>
+      <ul style="margin-bottom:0">
+        <li><strong>P:</strong> <em>YY</em> (yellow) × <em>yy</em> (green)</li>
+        <li>Each homozygous parent forms only <strong>1 kind of gamete</strong>: <em>Y</em> or <em>y</em></li>
+        <li><strong>F₁:</strong> all <em>Yy</em> (heterozygous)</li>
+        <li>The <em>Yy</em> offspring forms <strong>2 kinds of gametes</strong>: <em>Y</em> and <em>y</em></li>
+        <li><strong>F₂:</strong> self-pollination gives a <strong>3:1 phenotypic ratio</strong> (yellow : green)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Law of Independent Assortment</h3>
+  <div class="box purple">
+    <div class="box-title">📜 Definition</div>
+    <strong>Two or more genes assort independently</strong> — each pair of alleles segregates independently of the other pair during gamete formation.
+  </div>
+  <div class="card">
+    <p><strong>Example:</strong> <em>YyRr</em> can produce <strong>four types of gametes</strong>: <em>YR</em>, <em>Yr</em>, <em>yR</em>, <em>yr</em>.</p>
+    <p>This demonstrates that different combinations of alleles produce <strong>genetic variation</strong>.</p>
+  </div>
+
+  <h3>Probability Rules</h3>
+  <div class="two-col">
+    <div class="box green">
+      <div class="box-title">Multiplication Rule ("AND")</div>
+      <p>When two or more <strong>independent events must occur together</strong>, <strong>multiply</strong> their probabilities.</p>
+      <p><strong>Formula:</strong> P(A AND B) = P(A) × P(B)</p>
+      <p><strong>Example:</strong> P(<em>gg</em> from <em>Gg</em> × <em>Gg</em>) = 1/2 × 1/2 = <strong>1/4</strong></p>
+    </div>
+    <div class="box amber">
+      <div class="box-title">Addition Rule ("OR")</div>
+      <p>When <strong>either of two mutually exclusive events</strong> can occur, <strong>add</strong> their probabilities.</p>
+      <p><strong>Formula:</strong> P(A OR B) = P(A) + P(B)</p>
+      <p><strong>Example:</strong> P(<em>Gg</em> from <em>Gg</em> × <em>Gg</em>) = (1/4) + (1/4) = <strong>1/2</strong></p>
+    </div>
+  </div>
+
+  <div class="box blue">
+    <div class="box-title">🧠 Key Idea</div>
+    <p style="margin-bottom:0"><strong>AND → MULTIPLY</strong> &nbsp;|&nbsp; <strong>OR → ADD</strong></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: PUNNETT SQUARES & TESTCROSS                         -->
+<!-- ============================================================ -->
+<section id="punnett">
+  <h2><span class="num">3</span> Punnett Squares &amp; Testcrosses</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Construct and interpret Punnett squares.</li>
+      <li>Use probability to predict genetic outcomes.</li>
+      <li>Explain how a testcross determines an unknown genotype.</li>
+    </ul>
+  </div>
+
+  <h3>Punnett Square: <em>Gg</em> × <em>Gg</em></h3>
+  <div class="card">
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div>
+      <div class="cell header">G</div>
+      <div class="cell header">g</div>
+      <div class="cell header">G</div>
+      <div class="cell green">GG<br><small>(green)</small></div>
+      <div class="cell green">Gg<br><small>(green)</small></div>
+      <div class="cell header">g</div>
+      <div class="cell green">Gg<br><small>(green)</small></div>
+      <div class="cell amber">gg<br><small>(yellow)</small></div>
+    </div>
+    <ul>
+      <li><strong>Genotypic ratio:</strong> 1 <em>GG</em> : 2 <em>Gg</em> : 1 <em>gg</em></li>
+      <li><strong>Phenotypic ratio:</strong> 3 green : 1 yellow</li>
+      <li><strong>Probabilities:</strong> 25% <em>GG</em>, 50% <em>Gg</em>, 25% <em>gg</em></li>
+    </ul>
+  </div>
+
+  <h3>Guided Example: <em>TT</em> × <em>Tt</em></h3>
+  <div class="card">
+    <p><em>T</em> = tall, <em>t</em> = short</p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div>
+      <div class="cell header">T</div>
+      <div class="cell header">T</div>
+      <div class="cell header">T</div>
+      <div class="cell green">TT<br><small>(Tall)</small></div>
+      <div class="cell green">TT<br><small>(Tall)</small></div>
+      <div class="cell header">t</div>
+      <div class="cell green">Tt<br><small>(Tall)</small></div>
+      <div class="cell green">Tt<br><small>(Tall)</small></div>
+    </div>
+    <ul>
+      <li><strong>Genotypic ratio:</strong> 1 <em>TT</em> : 1 <em>Tt</em></li>
+      <li><strong>Phenotypic ratio:</strong> 4 tall : 0 short</li>
+      <li><strong>Probability:</strong> 100% tall, 50% <em>TT</em>, 50% <em>Tt</em></li>
+    </ul>
+  </div>
+
+  <h3>The Testcross</h3>
+  <div class="card">
+    <p><strong>Problem:</strong> A plant is tall, but we don't know if its genotype is <em>TT</em> or <em>Tt</em>.</p>
+    <p><strong>Solution:</strong> Cross it with a <strong>homozygous recessive</strong> individual (<em>tt</em>).</p>
+    <div class="two-col">
+      <div class="box green">
+        <div class="box-title">Case 1: <em>TT</em> × <em>tt</em></div>
+        <p><strong>All offspring tall</strong> → Unknown parent is <strong><em>TT</em></strong>.</p>
+      </div>
+      <div class="box amber">
+        <div class="box-title">Case 2: <em>Tt</em> × <em>tt</em></div>
+        <p><strong>1:1 ratio</strong> (50% tall, 50% short) → Unknown parent is <strong><em>Tt</em></strong>.</p>
+      </div>
+    </div>
+    <div class="box red" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Idea</div>
+      A <strong>recessive phenotype in the offspring</strong> reveals that the unknown parent contributed a recessive allele.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: FORKED-LINE METHOD                                  -->
+<!-- ============================================================ -->
+<section id="forked">
+  <h2><span class="num">4</span> Dihybrid Crosses &amp; Forked-Line Method</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Target</div>
+    <ul style="margin-bottom:0">
+      <li>Apply probability to solve dihybrid and multi-hybrid crosses using the forked-line method.</li>
+    </ul>
+  </div>
+
+  <h3>Dihybrid Cross: <em>GgWw</em> × <em>GgWw</em></h3>
+  <div class="card">
+    <p>A 4 × 4 Punnett square contains <strong>16 boxes</strong>. But probability rules can make the problem much faster.</p>
+    <div class="two-col">
+      <div class="box green">
+        <div class="box-title">Gene 1: Seed Color</div>
+        <ul style="margin-bottom:0">
+          <li><em>Gg</em> × <em>Gg</em></li>
+          <li>Green = 3/4</li>
+          <li>Yellow = 1/4</li>
+        </ul>
+      </div>
+      <div class="box amber">
+        <div class="box-title">Gene 2: Seed Shape</div>
+        <ul style="margin-bottom:0">
+          <li><em>Ww</em> × <em>Ww</em></li>
+          <li>Round = 3/4</li>
+          <li>Wrinkled = 1/4</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>Probability of Green AND Round:</strong> 3/4 × 3/4 = <strong>9/16</strong></p>
+  </div>
+
+  <h3>The Forked-Line Method</h3>
+  <div class="card">
+    <p>Applies probability to each gene separately, then multiplies along branches.</p>
+    <div class="ascii">
+Gene 1          Gene 2          Phenotype &amp; Probability
+                    ┌─ 3/4 round ──→ 3/4 × 3/4 = 9/16 green, round
+3/4 green ──────────┤
+                    └─ 1/4 wrinkled → 3/4 × 1/4 = 3/16 green, wrinkled
+
+                    ┌─ 3/4 round ──→ 1/4 × 3/4 = 3/16 yellow, round
+1/4 yellow ─────────┤
+                    └─ 1/4 wrinkled → 1/4 × 1/4 = 1/16 yellow, wrinkled
+    </div>
+    <p><strong>Phenotypic ratio:</strong> <strong>9 : 3 : 3 : 1</strong></p>
+  </div>
+
+  <h3>Trihybrid Example — <em>AaBbCc</em> × <em>AaBbCc</em></h3>
+  <div class="card">
+    <p>Instead of a 64-box Punnett square, multiply the probabilities for each gene:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Phenotype Combination</th><th>Probability</th></tr></thead>
+        <tbody>
+          <tr><td>Dominant for all three (A_B_C_)</td><td>3/4 × 3/4 × 3/4 = <strong>27/64</strong></td></tr>
+          <tr><td>Dominant for two, recessive for one</td><td>3/4 × 3/4 × 1/4 = <strong>9/64</strong> (each)</td></tr>
+          <tr><td>Dominant for one, recessive for two</td><td>3/4 × 1/4 × 1/4 = <strong>3/64</strong> (each)</td></tr>
+          <tr><td>Recessive for all three (aabbcc)</td><td>1/4 × 1/4 × 1/4 = <strong>1/64</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: DEGREES OF DOMINANCE                                -->
+<!-- ============================================================ -->
+<section id="dominance">
+  <h2><span class="num">5</span> Extensions: Degrees of Dominance</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Describe complete dominance, incomplete dominance, and codominance.</li>
+      <li>Differentiate the three patterns of inheritance.</li>
+      <li>Predict genotypic and phenotypic ratios from monohybrid crosses.</li>
+      <li>Identify the pattern of inheritance shown in a given genetic problem.</li>
+    </ul>
+  </div>
+
+  <div class="box amber">
+    <div class="box-title">❓ Guiding Question</div>
+    Do all traits follow the simple dominant-recessive pattern described by Mendel? <strong>No.</strong>
+  </div>
+
+  <h3>The Three Patterns at a Glance</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Pattern</th><th>Homozygote 1</th><th>Heterozygote</th><th>Homozygote 2</th><th>Phenotypic Ratio</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Complete Dominance</strong></td>
+          <td>Dominant phenotype</td>
+          <td>Dominant phenotype</td>
+          <td>Recessive phenotype</td>
+          <td>3 : 1</td>
+        </tr>
+        <tr>
+          <td><strong>Incomplete Dominance</strong></td>
+          <td>Phenotype 1</td>
+          <td><strong>Intermediate</strong> phenotype</td>
+          <td>Phenotype 2</td>
+          <td>1 : 2 : 1</td>
+        </tr>
+        <tr>
+          <td><strong>Codominance</strong></td>
+          <td>Phenotype 1</td>
+          <td><strong>Both phenotypes expressed</strong></td>
+          <td>Phenotype 2</td>
+          <td>1 : 2 : 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box green">
+    <div class="box-title">💡 One Question Reveals the Pattern</div>
+    <p><strong>"What does the heterozygote look like?"</strong></p>
+    <ul style="margin-bottom:0">
+      <li>Same as one homozygote → <strong>Complete Dominance</strong></li>
+      <li>Intermediate → <strong>Incomplete Dominance</strong></li>
+      <li>Both traits expressed → <strong>Codominance</strong></li>
+    </ul>
+  </div>
+
+  <!-- COMPLETE DOMINANCE -->
+  <h3>1. Complete Dominance — One Allele Masks the Other</h3>
+  <div class="card">
+    <p><strong>Example:</strong> <em>R</em> = round, <em>r</em> = wrinkled</p>
+    <p><strong>Cross:</strong> <em>Rr</em> × <em>Rr</em></p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">R</div><div class="cell header">r</div>
+      <div class="cell header">R</div><div class="cell green">RR<br><small>Round</small></div><div class="cell green">Rr<br><small>Round</small></div>
+      <div class="cell header">r</div><div class="cell green">Rr<br><small>Round</small></div><div class="cell amber">rr<br><small>Wrinkled</small></div>
+    </div>
+    <ul>
+      <li><strong>Genotypic ratio:</strong> 1 <em>RR</em> : 2 <em>Rr</em> : 1 <em>rr</em></li>
+      <li><strong>Phenotypic ratio:</strong> 3 round : 1 wrinkled</li>
+      <li><strong>Remember:</strong> <em>Rr</em> looks like <em>RR</em>.</li>
+    </ul>
+  </div>
+
+  <!-- INCOMPLETE DOMINANCE -->
+  <h3>2. Incomplete Dominance — Neither Allele Completely Dominates</h3>
+  <div class="card">
+    <p>The <strong>heterozygote shows an intermediate phenotype</strong>.</p>
+    <p><strong>Example:</strong> Red flower (<em>RR</em>) × White flower (<em>WW</em>) → <strong>Pink flower (<em>RW</em>)</strong></p>
+    <p><strong>Cross:</strong> <em>RW</em> × <em>RW</em></p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">R</div><div class="cell header">W</div>
+      <div class="cell header">R</div><div class="cell red">RR<br><small>Red</small></div><div class="cell pink">RW<br><small>Pink</small></div>
+      <div class="cell header">W</div><div class="cell pink">RW<br><small>Pink</small></div><div class="cell blue">WW<br><small>White</small></div>
+    </div>
+    <ul>
+      <li><strong>Genotypic ratio:</strong> 1 <em>RR</em> : 2 <em>RW</em> : 1 <em>WW</em></li>
+      <li><strong>Phenotypic ratio:</strong> 1 red : 2 pink : 1 white</li>
+      <li><strong>Pink offspring:</strong> 50%</li>
+    </ul>
+    <div class="box amber" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Idea</div>
+      The <strong>1:2:1 phenotypic ratio</strong> distinguishes incomplete dominance from complete dominance.
+    </div>
+  </div>
+
+  <!-- CODOMINANCE -->
+  <h3>3. Codominance — Both Alleles Are Expressed</h3>
+  <div class="card">
+    <p>Neither allele masks the other. Instead, <strong>both alleles are fully expressed</strong> in the heterozygote.</p>
+    <p><strong>Example:</strong> Shorthorn Cattle — <em>RR</em> = red, <em>WW</em> = white, <em>RW</em> = <strong>roan</strong></p>
+    <p><strong>Cross:</strong> <em>RW</em> × <em>RW</em></p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">R</div><div class="cell header">W</div>
+      <div class="cell header">R</div><div class="cell red">RR<br><small>Red</small></div><div class="cell pink">RW<br><small>Roan</small></div>
+      <div class="cell header">W</div><div class="cell pink">RW<br><small>Roan</small></div><div class="cell blue">WW<br><small>White</small></div>
+    </div>
+    <ul>
+      <li><strong>Genotypic ratio:</strong> 1 <em>RR</em> : 2 <em>RW</em> : 1 <em>WW</em></li>
+      <li><strong>Phenotypic ratio:</strong> 1 red : 2 roan : 1 white</li>
+    </ul>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Idea</div>
+      A roan cow does <strong>not</strong> have a blended color. Instead, <strong>both red and white hairs are expressed</strong>.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: MULTIPLE ALLELISM                                   -->
+<!-- ============================================================ -->
+<section id="multiple">
+  <h2><span class="num">6</span> Multiple Allelism</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Describe multiple allelism and identify its distinctive features.</li>
+      <li>Identify the genotypes and phenotypes of the ABO blood groups.</li>
+      <li>Predict possible offspring genotypes and phenotypes.</li>
+      <li>Solve problems involving multiple alleles.</li>
+    </ul>
+  </div>
+
+  <div class="box amber">
+    <div class="box-title">❓ Guiding Question</div>
+    Can a single gene have more than two possible alleles? <strong>Yes.</strong>
+  </div>
+
+  <h3>What is Multiple Allelism?</h3>
+  <div class="card">
+    <p>A character is under <strong>multiple allelism</strong> when a gene has <strong>more than two possible alleles within a population</strong>.</p>
+    <div class="box red" style="margin-bottom:0">
+      <div class="box-title">⚠️ Common Misconception</div>
+      <p style="margin-bottom:0">Multiple allelism does <strong>NOT</strong> mean one individual has three alleles. An individual can possess only <strong>TWO alleles</strong> of a gene at a time — one from each parent.</p>
+    </div>
+  </div>
+
+  <h3>The ABO Blood Group System</h3>
+  <div class="card">
+    <p>Controlled by a gene with <strong>three alleles</strong>: <strong>I<sup>A</sup></strong>, <strong>I<sup>B</sup></strong>, and <strong>i</strong>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Allele</th><th>Produces</th><th>Relationship</th></tr></thead>
+        <tbody>
+          <tr><td><strong>I<sup>A</sup></strong></td><td>A antigen</td><td>Codominant with I<sup>B</sup>; dominant over i</td></tr>
+          <tr><td><strong>I<sup>B</sup></strong></td><td>B antigen</td><td>Codominant with I<sup>A</sup>; dominant over i</td></tr>
+          <tr><td><strong>i</strong></td><td>No A or B antigen</td><td>Recessive to both I<sup>A</sup> and I<sup>B</sup></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Dominance:</strong> I<sup>A</sup> = I<sup>B</sup> &gt; i</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Blood Type</th><th>Possible Genotypes</th><th>Can Receive From</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A</strong></td><td>I<sup>A</sup>I<sup>A</sup> or I<sup>A</sup>i</td><td>A or O</td></tr>
+          <tr><td><strong>B</strong></td><td>I<sup>B</sup>I<sup>B</sup> or I<sup>B</sup>i</td><td>B or O</td></tr>
+          <tr><td><strong>AB</strong></td><td>I<sup>A</sup>I<sup>B</sup></td><td>A, B, AB, or O</td></tr>
+          <tr><td><strong>O</strong></td><td>ii</td><td>O</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Type AB</strong> is special: both alleles are expressed (codominance). <strong>Type O</strong> is recessive: only expressed when two <em>i</em> alleles are present.</p>
+  </div>
+
+  <h3>Beyond Three Alleles — Rabbit Coat Color</h3>
+  <div class="card">
+    <p>Rabbit coat color has <strong>four alleles</strong> with a hierarchy of dominance:</p>
+    <p><strong>C⁺ &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c</strong></p>
+    <ul>
+      <li><strong>C⁺:</strong> Wild type (brown fur)</li>
+      <li><strong>c<sup>ch</sup>:</strong> Chinchilla (black-tipped white fur)</li>
+      <li><strong>c<sup>h</sup>:</strong> Himalayan (white fur with black extremities)</li>
+      <li><strong>c:</strong> Albino (white fur)</li>
+    </ul>
+  </div>
+
+  <h3>Connecting Multiple Allelism to Mendel</h3>
+  <div class="box green">
+    <div class="box-title">✅ Mendel's Principles Still Apply</div>
+    <ul style="margin-bottom:0">
+      <li>One allele comes from each parent.</li>
+      <li>During gamete formation, the two alleles in an individual <strong>separate</strong>.</li>
+      <li>The difference is: instead of a gene having only two possible alleles in the population, there are <strong>more than two</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: POLYGENIC INHERITANCE                               -->
+<!-- ============================================================ -->
+<section id="polygenic">
+  <h2><span class="num">7</span> Polygenic Inheritance</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Describe polygenic inheritance.</li>
+      <li>Differentiate polygenic inheritance from classical Mendelian inheritance.</li>
+      <li>Explain how several genes contribute to one trait.</li>
+      <li>Predict phenotypic outcomes and ratios in a polygenic cross.</li>
+    </ul>
+  </div>
+
+  <h3>What is Polygenic Inheritance?</h3>
+  <div class="card">
+    <p><strong>One character is controlled by two or more genes</strong>, with each gene contributing to the phenotype.</p>
+    <div class="two-col">
+      <div class="box green">
+        <div class="box-title">Classical Mendelian</div>
+        <ul style="margin-bottom:0">
+          <li>One gene → one pair of alleles → limited phenotypes</li>
+        </ul>
+      </div>
+      <div class="box amber">
+        <div class="box-title">Polygenic</div>
+        <ul style="margin-bottom:0">
+          <li>Several genes → many allele combinations → a range of phenotypes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Why Do Polygenic Traits Show a Range?</h3>
+  <div class="card">
+    <p>Each gene contributes to the final phenotype. In the skin-color model:</p>
+    <ul>
+      <li>More contributing dominant alleles → more melanin → <strong>darker phenotype</strong></li>
+      <li>Fewer contributing dominant alleles → less melanin → <strong>lighter phenotype</strong></li>
+    </ul>
+    <p>Therefore, instead of only two or three possible phenotypes, <strong>many intermediate phenotypes</strong> can occur.</p>
+  </div>
+
+  <h3>A Simple Model — Three Gene Pairs (<em>AaBbCc</em>)</h3>
+  <div class="card">
+    <p><strong>3 gene pairs × 2 alleles = 6 alleles total</strong></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Number of Dominant Alleles</th><th>Skin Color</th><th>F₂ Ratio</th></tr></thead>
+        <tbody>
+          <tr><td>6 (AABBCC)</td><td>Very Dark</td><td>1/64</td></tr>
+          <tr><td>5</td><td>Dark</td><td>6/64</td></tr>
+          <tr><td>4</td><td>Fairly Dark</td><td>15/64</td></tr>
+          <tr><td>3 (AaBbCc)</td><td>Intermediate</td><td><strong>20/64</strong></td></tr>
+          <tr><td>2</td><td>Fairly Light</td><td>15/64</td></tr>
+          <tr><td>1</td><td>Light</td><td>6/64</td></tr>
+          <tr><td>0 (aabbcc)</td><td>Very Light</td><td>1/64</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔔 Bell-Shaped Distribution</div>
+      The <strong>intermediate phenotype is the most common</strong>. The distribution forms a bell-shaped (normal) curve.
+    </div>
+  </div>
+
+  <h3>Polygenic vs. Mendelian Inheritance</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Classical Mendelian</th><th>Polygenic</th></tr></thead>
+      <tbody>
+        <tr><td>One gene considered for the trait</td><td>Several genes contribute to one trait</td></tr>
+        <tr><td>Usually fewer phenotype categories</td><td>Many possible phenotypes</td></tr>
+        <tr><td>Distinct phenotypic classes</td><td>Phenotypes form a continuous range</td></tr>
+        <tr><td>Example: simple pea-plant traits</td><td>Examples: height, skin color</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box red">
+    <div class="box-title">⚠️ Do Not Confuse These Extensions</div>
+    <ul style="margin-bottom:0">
+      <li><strong>Multiple Allelism:</strong> One gene → more than two possible alleles in the population.</li>
+      <li><strong>Polygenic Inheritance:</strong> Several genes → one character.</li>
+      <li><strong>Pleiotropy:</strong> One gene → affects multiple characters.</li>
+      <li><strong>Epistasis:</strong> One gene affects or masks the expression of another gene.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: SEX-LINKED INHERITANCE                              -->
+<!-- ============================================================ -->
+<section id="sexlinked">
+  <h2><span class="num">8</span> Sex-Linked Inheritance</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Define sex-linked inheritance.</li>
+      <li>Differentiate X-linked recessive, X-linked dominant, and Y-linked inheritance.</li>
+      <li>Identify inheritance patterns associated with sex chromosomes.</li>
+      <li>Solve simple X-linked inheritance problems.</li>
+    </ul>
+  </div>
+
+  <div class="box amber">
+    <div class="box-title">❓ Guiding Question</div>
+    Why do some genetic traits show different inheritance patterns in males and females?
+  </div>
+
+  <h3>What is Sex-Linked Inheritance?</h3>
+  <div class="card">
+    <p>Occurs when a gene responsible for a trait is located on a <strong>sex chromosome</strong>.</p>
+    <ul>
+      <li><strong>Female:</strong> XX</li>
+      <li><strong>Male:</strong> XY</li>
+    </ul>
+    <p>The X chromosome contains <strong>many more genes</strong> than the Y chromosome. Therefore, many human sex-linked traits involve genes on the <strong>X chromosome</strong>.</p>
+  </div>
+
+  <h3>Three Patterns of Sex-Linked Inheritance</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pattern</th><th>Location</th><th>Important Transmission Pattern</th></tr></thead>
+      <tbody>
+        <tr><td><strong>X-linked recessive</strong></td><td>X chromosome</td><td>More commonly expressed in males; <strong>no father-to-son transmission</strong></td></tr>
+        <tr><td><strong>X-linked dominant</strong></td><td>X chromosome</td><td>Affected father → <strong>all daughters</strong>; no affected sons</td></tr>
+        <tr><td><strong>Y-linked</strong></td><td>Y chromosome</td><td><strong>Father → son only</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- X-LINKED RECESSIVE -->
+  <h3>1. X-Linked Recessive Traits</h3>
+  <div class="card">
+    <h4>Males (XY)</h4>
+    <p>Only <strong>one X chromosome</strong>. If it carries the recessive allele → affected (<strong>X<sup>h</sup>Y</strong>).</p>
+    <h4>Females (XX)</h4>
+    <p>Need <strong>two recessive alleles</strong> to be affected (<strong>X<sup>h</sup>X<sup>h</sup></strong>). A carrier is <strong>X<sup>H</sup>X<sup>h</sup></strong>.</p>
+    <h4>Example Cross: Carrier Mother × Normal Father</h4>
+    <p>X<sup>H</sup>X<sup>h</sup> × X<sup>H</sup>Y</p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">X<sup>H</sup></div><div class="cell header">Y</div>
+      <div class="cell header">X<sup>H</sup></div><div class="cell green">X<sup>H</sup>X<sup>H</sup><br><small>Normal female</small></div><div class="cell blue">X<sup>H</sup>Y<br><small>Normal male</small></div>
+      <div class="cell header">X<sup>h</sup></div><div class="cell pink">X<sup>H</sup>X<sup>h</sup><br><small>Carrier female</small></div><div class="cell red">X<sup>h</sup>Y<br><small>Affected male</small></div>
+    </div>
+    <ul>
+      <li>25% normal female, 25% carrier female, 25% normal male, 25% affected male</li>
+      <li><strong>50% of daughters</strong> are carriers</li>
+      <li><strong>50% of sons</strong> are affected</li>
+    </ul>
+    <div class="box red" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Pattern</div>
+      No father-to-son transmission. Affected grandfather → carrier daughter → affected grandson.<br>
+      <strong>Examples:</strong> Hemophilia, red-green colorblindness, Duchenne muscular dystrophy
+    </div>
+  </div>
+
+  <!-- X-LINKED DOMINANT -->
+  <h3>2. X-Linked Dominant Traits</h3>
+  <div class="card">
+    <p>Only <strong>one copy of the dominant allele</strong> is needed.</p>
+    <ul>
+      <li>X<sup>D</sup>X<sup>d</sup> → affected female</li>
+      <li>X<sup>D</sup>Y → affected male</li>
+    </ul>
+    <h4>Most Important Pattern: Affected Father × Unaffected Mother</h4>
+    <p>X<sup>D</sup>Y × X<sup>d</sup>X<sup>d</sup></p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">X<sup>D</sup></div><div class="cell header">Y</div>
+      <div class="cell header">X<sup>d</sup></div><div class="cell red">X<sup>D</sup>X<sup>d</sup><br><small>Affected daughter</small></div><div class="cell blue">X<sup>d</sup>Y<br><small>Unaffected son</small></div>
+      <div class="cell header">X<sup>d</sup></div><div class="cell red">X<sup>D</sup>X<sup>d</sup><br><small>Affected daughter</small></div><div class="cell blue">X<sup>d</sup>Y<br><small>Unaffected son</small></div>
+    </div>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Pattern</div>
+      <ul style="margin-bottom:0">
+        <li><strong>100% of daughters</strong> affected (receive X<sup>D</sup>)</li>
+        <li><strong>0% of sons</strong> affected (receive Y)</li>
+        <li>No father-to-son transmission</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Y-LINKED -->
+  <h3>3. Y-Linked Traits</h3>
+  <div class="card">
+    <p>Gene is located on the <strong>Y chromosome</strong>.</p>
+    <ul>
+      <li>Only males normally have a Y chromosome → <strong>only males can inherit Y-linked traits</strong>.</li>
+      <li>A father passes his Y to his sons → <strong>Father → Son → Grandson</strong></li>
+      <li>No father-to-daughter transmission.</li>
+    </ul>
+  </div>
+
+  <h3>Comparing the Three Patterns</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pattern</th><th>Location</th><th>Key Transmission</th></tr></thead>
+      <tbody>
+        <tr><td><strong>X-linked recessive</strong></td><td>X chromosome</td><td>More common in males; no father-to-son</td></tr>
+        <tr><td><strong>X-linked dominant</strong></td><td>X chromosome</td><td>Affected father → all daughters; no affected sons</td></tr>
+        <tr><td><strong>Y-linked</strong></td><td>Y chromosome</td><td>Father → son only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box green">
+    <div class="box-title">🧠 Memory Aid</div>
+    <ul style="margin-bottom:0">
+      <li><strong>X-recessive:</strong> Carrier mother → affected sons</li>
+      <li><strong>X-dominant:</strong> Affected father → affected daughters</li>
+      <li><strong>Y-linked:</strong> Father → sons</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 9: PRACTICE PROBLEMS                                   -->
+<!-- ============================================================ -->
+<section id="practice">
+  <h2><span class="num">9</span> Practice Problems (from the Modules)</h2>
+
+  <div class="problem">
+    <div class="q">1. A rooster with gray feathers is mated with a hen of the same phenotype. Among their offspring, 15 chicks are gray, 6 are black, and 8 are white. What is the simplest explanation for the inheritance of these colors?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">The ratio is approximately 15:6:8, which simplifies to roughly <strong>2:1:1</strong> (or 1:2:1).</div>
+        <div class="step">This is the classic <strong>1:2:1 phenotypic ratio</strong> seen in <strong>incomplete dominance</strong> or <strong>codominance</strong>.</div>
+        <div class="step">The gray heterozygote (e.g., <em>BW</em>) is intermediate (incomplete dominance) or expresses both traits (codominance) between black (<em>BB</em>) and white (<em>WW</em>).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">2. Flower position, stem length, and seed shape are controlled by independently assorting genes: Axial (A) / Terminal (a), Tall (T) / Dwarf (t), Round (R) / Wrinkled (r). If a plant heterozygous for all three characters self-fertilizes, what proportion of offspring is expected to be homozygous for all three dominant traits?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">Cross: <em>AaTtRr</em> × <em>AaTtRr</em></div>
+        <div class="step">Probability of <em>AA</em> = 1/4</div>
+        <div class="step">Probability of <em>TT</em> = 1/4</div>
+        <div class="step">Probability of <em>RR</em> = 1/4</div>
+        <div class="step">Using the multiplication rule (AND): 1/4 × 1/4 × 1/4 = <strong>1/64</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">3. In a monohybrid cross <em>Gg</em> × <em>Gg</em>, what is the probability of producing a <em>gg</em> offspring?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">P(<em>g</em> from Parent 1) = 1/2</div>
+        <div class="step">P(<em>g</em> from Parent 2) = 1/2</div>
+        <div class="step">P(<em>gg</em>) = 1/2 × 1/2 = <strong>1/4 (25%)</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">4. What is the probability of producing a heterozygous <em>Gg</em> offspring from a <em>Gg</em> × <em>Gg</em> cross?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">Two mutually exclusive ways: (<em>G</em> from Parent 1 + <em>g</em> from Parent 2) OR (<em>g</em> from Parent 1 + <em>G</em> from Parent 2).</div>
+        <div class="step">P = (1/2 × 1/2) + (1/2 × 1/2) = 1/4 + 1/4 = <strong>1/2 (50%)</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">5. A tall pea plant of unknown genotype is crossed with a dwarf plant (<em>tt</em>). Half the offspring are tall and half are dwarf. What was the unknown genotype?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">The 1:1 ratio indicates the unknown parent produced two types of gametes (<em>T</em> and <em>t</em>) in equal proportion.</div>
+        <div class="step">Therefore, the unknown parent is <strong><em>Tt</em></strong> (heterozygous tall).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">6. In a dihybrid cross <em>GgWw</em> × <em>GgWw</em>, what is the probability of getting a yellow, wrinkled offspring? (Assume G=green, g=yellow, W=round, w=wrinkled).</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Yellow (gg):</b> 1/4 (from <em>Gg</em> × <em>Gg</em>)</div>
+        <div class="step"><b>Wrinkled (ww):</b> 1/4 (from <em>Ww</em> × <em>Ww</em>)</div>
+        <div class="step"><b>Combined (AND rule):</b> 1/4 × 1/4 = <strong>1/16</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">7. Red flower × White flower produces all Pink flowers. What pattern of inheritance is this? What would the F₂ phenotypic ratio be?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Pattern:</b> Incomplete dominance — the heterozygote shows an <strong>intermediate</strong> phenotype.</div>
+        <div class="step">F₁ = all <em>RW</em> (pink). F₂ from <em>RW</em> × <em>RW</em> = 1 <em>RR</em> (red) : 2 <em>RW</em> (pink) : 1 <em>WW</em> (white).</div>
+        <div class="step"><b>Phenotypic ratio:</b> <strong>1 red : 2 pink : 1 white</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">8. A mother has Type A blood and a father has Type B blood. Their child is Type O. Determine the parents' genotypes and the possible offspring blood types.</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Mother's genotype:</b> I<sup>A</sup>i (must carry <em>i</em> to have a Type O child)</div>
+        <div class="step"><b>Father's genotype:</b> I<sup>B</sup>i</div>
+        <div class="step"><b>Cross:</b> I<sup>A</sup>i × I<sup>B</sup>i</div>
+        <div class="step"><b>Genotypic ratio:</b> 1 I<sup>A</sup>I<sup>B</sup> : 1 I<sup>A</sup>i : 1 I<sup>B</sup>i : 1 ii</div>
+        <div class="step"><b>Phenotypic ratio:</b> 1 AB : 1 A : 1 B : 1 O</div>
+        <div class="step"><b>Probability of Type AB child:</b> <strong>25%</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">9. In the three-gene skin color model (<em>AaBbCc</em> × <em>AaBbCc</em>), what is the most common phenotype?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">The most common phenotype is the <strong>intermediate</strong> phenotype with <strong>3 contributing dominant alleles</strong> (20/64 of the offspring).</div>
+        <div class="step">The distribution forms a bell-shaped curve: 1:6:15:20:15:6:1.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">10. A carrier female for an X-linked recessive condition has children with an unaffected male. What is the probability of an affected son?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Cross:</b> X<sup>H</sup>X<sup>h</sup> × X<sup>H</sup>Y</div>
+        <div class="step">Sons receive Y from the father and either X<sup>H</sup> or X<sup>h</sup> from the mother.</div>
+        <div class="step">50% of sons receive X<sup>h</sup> → affected son.</div>
+        <div class="step"><b>Probability of an affected son:</b> <strong>1/2 (50%)</strong></div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">11. An affected father has an X-linked dominant condition and the mother is unaffected. What percentage of daughters are expected to be affected?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Cross:</b> X<sup>D</sup>Y (affected father) × X<sup>d</sup>X<sup>d</sup> (unaffected mother)</div>
+        <div class="step">The father gives X<sup>D</sup> to ALL daughters → <strong>100% of daughters affected</strong>.</div>
+        <div class="step">The father gives Y to ALL sons → <strong>0% of sons affected</strong>.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">12. A father has a Y-linked trait. Who can inherit the trait?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step">Only his <strong>sons</strong> can inherit the trait (Father → Son → Grandson).</div>
+        <div class="step">There is no father-to-daughter transmission of a Y-linked gene.</div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 10: FLASHCARDS                                         -->
+<!-- ============================================================ -->
+<section id="flashcards">
+  <h2><span class="num">10</span> Flashcards</h2>
+  <p>Click a card to flip it. Use the buttons to flip all cards or shuffle.</p>
+
+  <div class="flashcard-controls">
+    <button onclick="flipAll()">🔄 Flip All</button>
+    <button onclick="shuffleCards()">🔀 Shuffle</button>
+    <button class="alt" onclick="location.reload()">↩️ Reset</button>
+    <span class="count" id="cardCount"></span>
+  </div>
+
+  <div class="flashcard-grid" id="flashcardGrid">
+
+    <!-- CARD 1 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Mendel's Approach</div>
+          <div class="fc-q">Why did Mendel choose pea plants?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Easy to grow; many offspring; short generation time; many contrasting traits; self-fertilize; cross-pollinate in a controlled manner.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Mendel's Approach</div>
+          <div class="fc-q">What did Mendel call the hereditary units he discovered?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">He called them <strong>"factors."</strong> Today, we call them <strong>genes</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Genetics Vocabulary</div>
+          <div class="fc-q">Differentiate genotype and phenotype.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Genotype:</strong> The combination of alleles (e.g., <em>Pp</em>).<br><br><strong>Phenotype:</strong> The observable characteristic (e.g., purple flowers).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Genetics Vocabulary</div>
+          <div class="fc-q">What is an allele?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">An <strong>alternative version of a gene</strong>. Example: the flower color gene has alleles <em>P</em> (purple) and <em>p</em> (white).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Genetics Vocabulary</div>
+          <div class="fc-q">What does homozygous mean?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Two <strong>identical</strong> alleles for a character.<br><br><em>PP</em> = homozygous dominant<br><em>pp</em> = homozygous recessive</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Genetics Vocabulary</div>
+          <div class="fc-q">What does heterozygous mean?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Two <strong>different</strong> alleles for a character (e.g., <em>Pp</em>). The organism is called a <strong>hybrid</strong> for that trait.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Mendel's Laws</div>
+          <div class="fc-q">State the Law of Segregation.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The two alleles for a gene <strong>separate during gamete formation</strong>, so each gamete receives only one allele. Connected to the separation of homologous chromosomes during <strong>Meiosis I</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Mendel's Laws</div>
+          <div class="fc-q">State the Law of Independent Assortment.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Two or more genes <strong>assort independently</strong> — each pair of alleles segregates independently of other pairs during gamete formation. Produces new combinations and <strong>genetic variation</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Probability</div>
+          <div class="fc-q">What is the multiplication rule?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The probability of two or more <strong>independent events occurring together</strong> equals the product of their individual probabilities.<br><br><strong>P(A AND B) = P(A) × P(B)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Probability</div>
+          <div class="fc-q">What is the addition rule?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The probability of <strong>either</strong> of two mutually exclusive events occurring is the sum of their individual probabilities.<br><br><strong>P(A OR B) = P(A) + P(B)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 11 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Probability</div>
+          <div class="fc-q">What is the probability of tossing two coins and getting one head and one tail?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Two sequences: (H then T) or (T then H).<br><br>P = (1/2 × 1/2) + (1/2 × 1/2) = 1/4 + 1/4 = <strong>1/2 (50%)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 12 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Monohybrid Cross</div>
+          <div class="fc-q">What is the phenotypic ratio of <em>Gg</em> × <em>Gg</em> under complete dominance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>3 : 1</strong> (3 dominant : 1 recessive)<br><br>Genotypic ratio: 1 <em>GG</em> : 2 <em>Gg</em> : 1 <em>gg</em><br>Probabilities: 25% GG, 50% Gg, 25% gg</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 13 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Dihybrid Cross</div>
+          <div class="fc-q">What is the phenotypic ratio of <em>YyRr</em> × <em>YyRr</em>?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>9 : 3 : 3 : 1</strong><br><br>9/16 both dominant, 3/16 one dominant &amp; one recessive, 3/16 the other combination, 1/16 both recessive.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 14 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Testcross</div>
+          <div class="fc-q">What is a testcross?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Crossing an individual with a <strong>dominant phenotype but unknown genotype</strong> with a <strong>homozygous recessive</strong> individual. It reveals the unknown genotype by examining offspring ratios.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 15 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Testcross</div>
+          <div class="fc-q">A testcross gives all dominant offspring. What was the unknown genotype?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Homozygous dominant</strong> (e.g., <em>TT</em>).<br><br>If the parent were heterozygous, some recessive offspring would appear.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 16 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Forked-Line Method</div>
+          <div class="fc-q">When is the forked-line method preferred?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">For <strong>dihybrid, trihybrid, and multi-hybrid crosses</strong>. It applies probability to each gene separately and avoids very large Punnett squares.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 17 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Forked-Line Method</div>
+          <div class="fc-q">In <em>GgWw</em> × <em>GgWw</em>, what is the probability of green, round offspring? (G=green, W=round)</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Green = 3/4, Round = 3/4<br><br>3/4 × 3/4 = <strong>9/16</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 18 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Degrees of Dominance</div>
+          <div class="fc-q">What is complete dominance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">One allele completely <strong>masks</strong> the other. The heterozygote looks like the dominant homozygote.<br><br>Phenotypic ratio: <strong>3 : 1</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 19 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Degrees of Dominance</div>
+          <div class="fc-q">What is incomplete dominance? Give an example.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Neither allele completely dominates; the heterozygote shows an <strong>intermediate phenotype</strong>.<br><br>Example: Red × White → <strong>Pink</strong><br><br>Phenotypic ratio: <strong>1 : 2 : 1</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 20 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Degrees of Dominance</div>
+          <div class="fc-q">What is codominance? Give an example.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Both alleles are <strong>fully expressed</strong> in the heterozygote.<br><br>Example: Red cow × White cow → <strong>Roan</strong> (both red and white hairs)<br><br>Phenotypic ratio: <strong>1 : 2 : 1</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 21 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Degrees of Dominance</div>
+          <div class="fc-q">How do you tell incomplete dominance from codominance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Incomplete:</strong> Heterozygote is <em>intermediate</em> (e.g., pink from red and white).<br><br><strong>Codominance:</strong> Heterozygote shows <em>both traits separately</em> (e.g., roan has both red and white hairs).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 22 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Multiple Allelism</div>
+          <div class="fc-q">What is multiple allelism?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">When a gene has <strong>more than two possible alleles within a population</strong>.<br><br>Important: An individual still inherits only <strong>two</strong> alleles — one from each parent.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 23 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Multiple Allelism</div>
+          <div class="fc-q">List the ABO blood group alleles and their dominance relationships.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>I<sup>A</sup></strong>, <strong>I<sup>B</sup></strong>, and <strong>i</strong>.<br><br>I<sup>A</sup> and I<sup>B</sup> are <strong>codominant</strong>.<br>Both are <strong>dominant over i</strong>.<br><br>I<sup>A</sup> = I<sup>B</sup> &gt; i</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 24 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Multiple Allelism</div>
+          <div class="fc-q">What are the genotypes for each ABO blood type?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>A:</strong> I<sup>A</sup>I<sup>A</sup> or I<sup>A</sup>i<br><strong>B:</strong> I<sup>B</sup>I<sup>B</sup> or I<sup>B</sup>i<br><strong>AB:</strong> I<sup>A</sup>I<sup>B</sup><br><strong>O:</strong> ii</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 25 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Multiple Allelism</div>
+          <div class="fc-q">Why is Type AB an example of codominance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Genotype I<sup>A</sup>I<sup>B</sup>: <strong>neither allele masks the other</strong>. Both A and B antigens are expressed on the red blood cells.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 26 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Multiple Allelism</div>
+          <div class="fc-q">How many alleles control rabbit coat color? What is the dominance hierarchy?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Four alleles:</strong> C⁺, c<sup>ch</sup>, c<sup>h</sup>, c<br><br>Hierarchy: <strong>C⁺ &gt; c<sup>ch</sup> &gt; c<sup>h</sup> &gt; c</strong><br><br>Wild type &gt; Chinchilla &gt; Himalayan &gt; Albino</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 27 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Polygenic Inheritance</div>
+          <div class="fc-q">What is polygenic inheritance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">When <strong>one character is controlled by two or more genes</strong>, each contributing to the phenotype. This produces a <strong>range of phenotypes</strong> rather than distinct categories.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 28 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Polygenic Inheritance</div>
+          <div class="fc-q">Why do polygenic traits show a bell-shaped distribution?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The <strong>intermediate phenotype</strong> can be produced by the most allele combinations, while extreme phenotypes require specific combinations and are rare. This produces a <strong>normal (bell-shaped) distribution</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 29 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Polygenic Inheritance</div>
+          <div class="fc-q">In the three-gene skin color model, what does the number of dominant alleles determine?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The <strong>amount of melanin</strong> produced. More dominant alleles → darker skin; fewer → lighter skin.<br><br>Range: 0 (very light) to 6 (very dark) dominant alleles.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 30 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Polygenic Inheritance</div>
+          <div class="fc-q">Distinguish polygenic inheritance from multiple allelism.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Multiple allelism:</strong> ONE gene → more than two alleles in the population (e.g., ABO blood).<br><br><strong>Polygenic:</strong> SEVERAL genes → one character (e.g., height, skin color).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 31 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">What is sex-linked inheritance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Occurs when a gene responsible for a trait is located on a <strong>sex chromosome</strong> (usually the X chromosome).<br><br>Female: XX &nbsp; | &nbsp; Male: XY</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 32 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">Why are X-linked recessive traits more common in males?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Males have only <strong>one X chromosome</strong>. If that X carries the recessive allele, there is no second X to carry a dominant allele — so the trait is expressed.<br><br>Females need <strong>two recessive alleles</strong> to express the trait.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 33 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">Carrier mother × normal father — what is the probability of an affected son?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">X<sup>H</sup>X<sup>h</sup> × X<sup>H</sup>Y<br><br>Sons get Y from father, X from mother.<br>50% get X<sup>h</sup> → affected.<br><br><strong>Probability: 1/2 (50%)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 34 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">Affected father (X-linked dominant) × unaffected mother — what happens to the daughters and sons?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Father: X<sup>D</sup>Y &nbsp; | &nbsp; Mother: X<sup>d</sup>X<sup>d</sup><br><br><strong>100% of daughters affected</strong> (receive X<sup>D</sup>).<br><strong>0% of sons affected</strong> (receive Y).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 35 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">How is a Y-linked trait inherited?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Father → son only.</strong><br><br>Only males have a Y chromosome, and fathers pass their Y to all sons. There is no father-to-daughter transmission.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 36 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Sex-Linked Inheritance</div>
+          <div class="fc-q">Give three examples of X-linked recessive disorders.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Hemophilia</strong><br><strong>Red-green colorblindness</strong><br><strong>Duchenne muscular dystrophy</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 37 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Compare Patterns</div>
+          <div class="fc-q">Complete dominance vs. incomplete dominance vs. codominance — what does the heterozygote look like?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Complete:</strong> Looks like one homozygote (dominant phenotype).<br><br><strong>Incomplete:</strong> Intermediate phenotype.<br><br><strong>Codominance:</strong> Both traits expressed.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 38 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Compare Patterns</div>
+          <div class="fc-q">Which patterns give a 1:2:1 phenotypic ratio?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Incomplete dominance</strong> and <strong>codominance</strong> both give a 1:2:1 phenotypic ratio in a heterozygous × heterozygous cross.<br><br>Complete dominance gives 3:1.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 39 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Compare Patterns</div>
+          <div class="fc-q">Distinguish multiple allelism, polygenic inheritance, pleiotropy, and epistasis.</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Multiple allelism:</strong> One gene → &gt;2 alleles in a population.<br><strong>Polygenic:</strong> Several genes → one character.<br><strong>Pleiotropy:</strong> One gene → multiple characters.<br><strong>Epistasis:</strong> One gene affects/masks another gene.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 40 -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Problem Solving</div>
+          <div class="fc-q">What is the first thing you should do when solving a genetics problem?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Do not immediately construct a Punnett square.</strong> First, list all information given, identify dominant/recessive traits, assign symbols, determine parental genotypes, and determine possible gametes. Then choose the appropriate method.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Biology 2 FA Study Guide · Philippine Science High School System · Q2 Modules 1 &amp; 2</p>
+  <p>Based on Q2.M1 Mendelian Inheritance and Q2.M2 Extensions of Mendelian Genetics</p>
+</footer>
+
+<script>
+  // ---- Flip all ----
+  function flipAll() {
+    const cards = document.querySelectorAll('.flashcard');
+    const anyUnflipped = [...cards].some(c => !c.classList.contains('flipped'));
+    cards.forEach(c => {
+      if (anyUnflipped) c.classList.add('flipped');
+      else c.classList.remove('flipped');
+    });
+  }
+
+  // ---- Shuffle ----
+  function shuffleCards() {
+    const grid = document.getElementById('flashcardGrid');
+    const cards = [...grid.children];
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      grid.appendChild(cards[j]);
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    cards.forEach(c => c.classList.remove('flipped'));
+  }
+
+  // ---- Keyboard accessibility ----
+  document.querySelectorAll('.flashcard').forEach(card => {
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+
+  // ---- Card count ----
+  document.getElementById('cardCount').textContent =
+    document.querySelectorAll('.flashcard').length + ' cards';
+
+  // ---- Smooth scroll & active nav ----
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // ---- Highlight nav on scroll ----
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if (window.scrollY >= top) current = sec.getAttribute('id');
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+
+</body>
+</html>
