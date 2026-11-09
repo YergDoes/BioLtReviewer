@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biology 2 FA Study Guide — Mendelian Inheritance & Extensions</title>
+<title>Biology 2 FA Study Guide — Mendelian Inheritance, Extensions & Pedigree Analysis</title>
 <style>
   /* ========== RESET & BASE ========== */
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,6 +23,8 @@
     --teal-bg: #ccfbf1;
     --pink: #9d174d;
     --pink-bg: #fce7f3;
+    --indigo: #4338ca;
+    --indigo-bg: #e0e7ff;
     --gray: #374151;
     --gray-bg: #f9fafb;
     --border: #e5e7eb;
@@ -44,7 +46,7 @@
     box-shadow: 0 4px 20px rgba(76,29,149,.35);
   }
   header h1 { font-size: clamp(1.5rem, 4vw, 2.4rem); margin-bottom: .4rem; letter-spacing: -.5px; }
-  header p { opacity: .92; font-size: clamp(.85rem, 2vw, 1.05rem); max-width: 780px; margin: 0 auto; }
+  header p { opacity: .92; font-size: clamp(.85rem, 2vw, 1.05rem); max-width: 820px; margin: 0 auto; }
   header .badge {
     display: inline-block; background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.35);
     border-radius: 999px; padding: .2rem .9rem; font-size: .78rem; margin-top: .8rem; letter-spacing: .5px;
@@ -59,8 +61,8 @@
     padding: .45rem .5rem;
   }
   nav a {
-    text-decoration: none; color: var(--gray); font-size: .74rem; font-weight: 600;
-    padding: .35rem .55rem; border-radius: 8px; transition: .2s; white-space: nowrap;
+    text-decoration: none; color: var(--gray); font-size: .72rem; font-weight: 600;
+    padding: .3rem .5rem; border-radius: 8px; transition: .2s; white-space: nowrap;
   }
   nav a:hover, nav a.active { background: var(--purple-bg); color: var(--purple); }
 
@@ -101,6 +103,7 @@
   .box.red { border-color: var(--red); background: var(--red-bg); }
   .box.teal { border-color: var(--teal); background: var(--teal-bg); }
   .box.pink { border-color: var(--pink); background: var(--pink-bg); }
+  .box.indigo { border-color: var(--indigo); background: var(--indigo-bg); }
   .box .box-title { font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; margin-bottom: .3rem; }
   .box.purple .box-title { color: var(--purple); }
   .box.green .box-title { color: var(--green); }
@@ -109,6 +112,7 @@
   .box.red .box-title { color: var(--red); }
   .box.teal .box-title { color: var(--teal); }
   .box.pink .box-title { color: var(--pink); }
+  .box.indigo .box-title { color: var(--indigo); }
 
   /* ========== TABLES ========== */
   .table-wrap { overflow-x: auto; margin: .8rem 0; }
@@ -132,6 +136,31 @@
   .punnett .cell.red { background: var(--red-bg); color: var(--red); }
   .punnett .cell.blue { background: var(--blue-bg); color: var(--blue); }
   .punnett .cell.pink { background: var(--pink-bg); color: var(--pink); }
+
+  /* ========== PEDIGREE SYMBOLS ========== */
+  .pedigree-key {
+    display: flex; flex-wrap: wrap; gap: 1rem; margin: .8rem 0;
+    padding: .8rem 1rem; background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  }
+  .pedigree-key .item { display: flex; align-items: center; gap: .35rem; font-size: .82rem; }
+  .symbol {
+    width: 22px; height: 22px; border: 2px solid #374151; display: inline-block;
+    flex-shrink: 0;
+  }
+  .symbol.square { border-radius: 2px; }
+  .symbol.circle { border-radius: 50%; }
+  .symbol.shaded { background: #1e3a8a; border-color: #1e3a8a; }
+  .symbol.half { background: linear-gradient(90deg, #1e3a8a 50%, #fff 50%); }
+  .symbol.deceased { position: relative; }
+  .symbol.deceased::after {
+    content: ''; position: absolute; inset: -2px;
+    background: linear-gradient(45deg, transparent 45%, #6b7280 47%, #6b7280 53%, transparent 55%);
+  }
+  .pedigree-tree {
+    font-family: 'Courier New', monospace; font-size: .78rem; line-height: 1.5;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: .8rem 1rem; overflow-x: auto; margin: .6rem 0; white-space: pre;
+  }
 
   /* ========== FLASHCARDS ========== */
   .flashcard-controls {
@@ -242,8 +271,8 @@
 
 <header>
   <h1>🧬 Biology 2 FA Study Guide</h1>
-  <p>Mendelian Inheritance &amp; Extensions — Degrees of Dominance, Multiple Allelism, Polygenic Inheritance &amp; Sex-Linked Traits</p>
-  <span class="badge">Based on Q2.M1 &amp; Q2.M2 Modules · Formative Assessment Reviewer</span>
+  <p>Mendelian Inheritance &amp; Extensions — Degrees of Dominance, Multiple Allelism, Polygenic Inheritance, Sex-Linked Traits &amp; Pedigree Analysis</p>
+  <span class="badge">Based on Q2.M1, Q2.M2 &amp; Q2.M3 Modules · Formative Assessment Reviewer</span>
 </header>
 
 <nav id="nav">
@@ -255,8 +284,9 @@
   <a href="#multiple">6. Multiple Alleles</a>
   <a href="#polygenic">7. Polygenic</a>
   <a href="#sexlinked">8. Sex-Linked</a>
-  <a href="#practice">9. Practice</a>
-  <a href="#flashcards">10. Flashcards</a>
+  <a href="#pedigree">9. Pedigree Analysis</a>
+  <a href="#practice">10. Practice</a>
+  <a href="#flashcards">11. Flashcards</a>
 </nav>
 
 <main>
@@ -1014,19 +1044,266 @@ Gene 1          Gene 2          Phenotype &amp; Probability
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 9: PRACTICE PROBLEMS                                   -->
+<!-- SECTION 9: PEDIGREE ANALYSIS                                   -->
+<!-- ============================================================ -->
+<section id="pedigree">
+  <h2><span class="num">9</span> Pedigree Analysis</h2>
+
+  <div class="box purple">
+    <div class="box-title">🎯 Learning Targets</div>
+    <ul style="margin-bottom:0">
+      <li>Explain what pedigree analysis is and why it is useful.</li>
+      <li>Construct and interpret pedigree charts using standard symbols.</li>
+      <li>Identify the most likely mode of inheritance of a trait.</li>
+      <li>Solve basic pedigree problems involving genotypes and probabilities.</li>
+    </ul>
+  </div>
+
+  <h3>What is Pedigree Analysis?</h3>
+  <div class="card">
+    <p><strong>Pedigree analysis</strong> is the study of a family tree to determine how a particular trait or genetic condition is inherited across generations.</p>
+    <h4>Why is it useful?</h4>
+    <ul>
+      <li>Tracks inherited traits and genetic conditions.</li>
+      <li>Helps infer possible genotypes of family members.</li>
+      <li>Identifies likely patterns of inheritance.</li>
+      <li>Helps estimate the probability that offspring will inherit a trait.</li>
+      <li>Allows geneticists to trace inheritance <strong>without conducting genetic crosses on humans</strong>.</li>
+    </ul>
+  </div>
+
+  <h3>Standard Pedigree Symbols</h3>
+  <div class="pedigree-key">
+    <div class="item"><span class="symbol square"></span> Male (unaffected)</div>
+    <div class="item"><span class="symbol circle"></span> Female (unaffected)</div>
+    <div class="item"><span class="symbol square shaded"></span> Affected male</div>
+    <div class="item"><span class="symbol circle shaded"></span> Affected female</div>
+    <div class="item"><span class="symbol square half"></span> Carrier (convention-dependent)</div>
+    <div class="item"><span class="symbol square deceased"></span> Deceased individual</div>
+  </div>
+  <div class="box amber">
+    <div class="box-title">✏️ Remember</div>
+    <ul style="margin-bottom:0">
+      <li><strong>Shaded symbols</strong> = affected individuals.</li>
+      <li><strong>Unshaded symbols</strong> = unaffected individuals.</li>
+      <li><strong>Roman numerals (I, II, III)</strong> = generations.</li>
+      <li><strong>Arabic numerals (1, 2, 3)</strong> = individuals within a generation.</li>
+      <li>A <strong>carrier</strong> has an allele associated with a recessive trait but does not express the trait.</li>
+      <li>Half-shading is a common convention for carriers, but the <strong>legend of the specific pedigree should always be checked</strong>.</li>
+    </ul>
+  </div>
+
+  <h3>How to Read a Pedigree</h3>
+  <div class="card">
+    <p>Three steps to interpret a pedigree:</p>
+    <ol>
+      <li><strong>Identify affected and unaffected individuals.</strong></li>
+      <li><strong>Compare the trait across generations and between sexes.</strong></li>
+      <li><strong>Determine which inheritance pattern best explains the family.</strong></li>
+    </ol>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">📖 Important Term</div>
+      A <strong>proband</strong> (also called a propositus or proposita) is the individual through whom a family is first brought to medical attention.
+    </div>
+  </div>
+
+  <h3>The Five Major Inheritance Patterns</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pattern</th><th>Where is the gene?</th><th>Key Clue in a Pedigree</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Autosomal dominant (AD)</strong></td><td>Non-sex chromosome</td><td>Appears in successive generations; father-to-son transmission occurs</td></tr>
+        <tr><td><strong>Autosomal recessive (AR)</strong></td><td>Non-sex chromosome</td><td>Unaffected parents can have an affected child; trait may skip generations</td></tr>
+        <tr><td><strong>X-linked dominant (XD)</strong></td><td>X chromosome</td><td>Affected father → all daughters; no affected sons</td></tr>
+        <tr><td><strong>X-linked recessive (XR)</strong></td><td>X chromosome</td><td>More males affected; no father-to-son transmission</td></tr>
+        <tr><td><strong>Y-linked</strong></td><td>Y chromosome</td><td>Father → son only; no daughters affected</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box green">
+    <div class="box-title">🔑 Key Distinction</div>
+    <p style="margin-bottom:0"><strong>Autosomal traits</strong> generally affect males and females at similar rates, while <strong>sex-linked traits</strong> follow inheritance rules determined by the sex chromosomes.</p>
+  </div>
+
+  <!-- AUTOSOMAL DOMINANT -->
+  <h3>1. Autosomal Dominant (AD)</h3>
+  <div class="card">
+    <h4>Characteristics</h4>
+    <ul>
+      <li>One copy of the dominant allele is sufficient to express the trait (assuming complete penetrance).</li>
+      <li>The trait often appears in <strong>successive generations</strong>.</li>
+      <li>An affected individual usually has an <strong>affected parent</strong>.</li>
+      <li>Males and females can both be affected.</li>
+      <li><strong>Father-to-son transmission is possible.</strong></li>
+    </ul>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔬 Example: Huntington Disease</div>
+      <p>Let <em>A</em> = dominant disease allele, <em>a</em> = normal allele.</p>
+      <p><em>Aa</em> × <em>aa</em> → 50% <em>Aa</em> (affected) : 50% <em>aa</em> (unaffected)</p>
+      <p style="margin-bottom:0">An unaffected individual generally does <strong>not</strong> carry the dominant disease allele in a simple, fully penetrant model.</p>
+    </div>
+  </div>
+
+  <!-- AUTOSOMAL RECESSIVE -->
+  <h3>2. Autosomal Recessive (AR)</h3>
+  <div class="card">
+    <h4>Characteristics</h4>
+    <ul>
+      <li><strong>Two copies of the recessive allele</strong> are needed for the trait to be expressed.</li>
+      <li><strong>Two unaffected carrier parents can have an affected child.</strong></li>
+      <li>The trait may <strong>skip generations</strong>.</li>
+      <li>Males and females are generally affected at similar rates.</li>
+    </ul>
+    <h4>Example Cross: <em>Aa</em> × <em>Aa</em></h4>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">A</div><div class="cell header">a</div>
+      <div class="cell header">A</div><div class="cell green">AA<br><small>Unaffected, not a carrier</small></div><div class="cell blue">Aa<br><small>Unaffected carrier</small></div>
+      <div class="cell header">a</div><div class="cell blue">Aa<br><small>Unaffected carrier</small></div><div class="cell red">aa<br><small>Affected</small></div>
+    </div>
+    <ul>
+      <li>25% <em>AA</em>: unaffected, not a carrier</li>
+      <li>50% <em>Aa</em>: unaffected carrier</li>
+      <li>25% <em>aa</em>: affected</li>
+    </ul>
+    <div class="box amber" style="margin-bottom:0">
+      <div class="box-title">📌 Remember</div>
+      <p style="margin-bottom:0">Each pregnancy has the <strong>same probabilities</strong>, independent of previous children.</p>
+    </div>
+    <p><strong>Examples:</strong> Cystic fibrosis, sickle cell disease, Tay-Sachs disease.</p>
+  </div>
+
+  <!-- X-LINKED DOMINANT -->
+  <h3>3. X-Linked Dominant (XD)</h3>
+  <div class="card">
+    <h4>Characteristics</h4>
+    <ul>
+      <li>Disease allele is on the <strong>X chromosome</strong>.</li>
+      <li>One copy of the allele can produce the trait.</li>
+      <li>Both males and females can be affected.</li>
+      <li><strong>An affected father passes his X chromosome to ALL daughters and to NONE of his sons.</strong></li>
+    </ul>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔬 Critical Pedigree Clue</div>
+      <p>Affected father × Unaffected mother:</p>
+      <ul style="margin-bottom:0">
+        <li>Daughters: <strong>X<sup>D</sup>X<sup>d</sup> → affected</strong></li>
+        <li>Sons: <strong>X<sup>d</sup>Y → unaffected</strong></li>
+      </ul>
+      <p style="margin-top:.3rem; margin-bottom:0"><strong>Examples:</strong> Hypophosphatemic rickets, some forms of oral-facial-digital syndrome.</p>
+    </div>
+  </div>
+
+  <!-- X-LINKED RECESSIVE -->
+  <h3>4. X-Linked Recessive (XR)</h3>
+  <div class="card">
+    <h4>Characteristics</h4>
+    <ul>
+      <li><strong>Males are more commonly affected</strong> because they typically have only one X chromosome.</li>
+      <li>A female usually needs <strong>two recessive alleles</strong> to be affected.</li>
+      <li>A carrier mother may pass the allele to her sons or daughters.</li>
+      <li>An affected father passes his X chromosome to <strong>every daughter</strong>, but <strong>not to his sons</strong>.</li>
+    </ul>
+    <h4>Example Cross: Carrier Mother × Unaffected Father</h4>
+    <p>X<sup>H</sup>X<sup>h</sup> × X<sup>H</sup>Y</p>
+    <div class="punnett" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="cell header"></div><div class="cell header">X<sup>H</sup></div><div class="cell header">Y</div>
+      <div class="cell header">X<sup>H</sup></div><div class="cell green">X<sup>H</sup>X<sup>H</sup><br><small>Unaffected female</small></div><div class="cell blue">X<sup>H</sup>Y<br><small>Unaffected male</small></div>
+      <div class="cell header">X<sup>h</sup></div><div class="cell pink">X<sup>H</sup>X<sup>h</sup><br><small>Carrier female</small></div><div class="cell red">X<sup>h</sup>Y<br><small>Affected male</small></div>
+    </div>
+    <ul>
+      <li>25% unaffected daughter, not a carrier</li>
+      <li>25% carrier daughter</li>
+      <li>25% unaffected son</li>
+      <li>25% affected son</li>
+    </ul>
+    <div class="box red" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Clue</div>
+      <p style="margin-bottom:0">An affected son may inherit the recessive allele from an <strong>unaffected carrier mother</strong>.</p>
+      <p style="margin-top:.3rem; margin-bottom:0"><strong>Examples:</strong> Red-green color vision deficiency; some forms of hemophilia.</p>
+    </div>
+  </div>
+
+  <!-- Y-LINKED -->
+  <h3>5. Y-Linked Inheritance</h3>
+  <div class="card">
+    <h4>Characteristics</h4>
+    <ul>
+      <li>The gene is located on the <strong>Y chromosome</strong>.</li>
+      <li>Only individuals with a Y chromosome can inherit the trait.</li>
+      <li>An affected father passes the Y chromosome to <strong>all his biological sons</strong>.</li>
+      <li><strong>Daughters do not inherit their father's Y chromosome.</strong></li>
+    </ul>
+    <div class="box green" style="margin-bottom:0">
+      <div class="box-title">🔑 Key Clue</div>
+      <p style="margin-bottom:0"><strong>Direct father-to-son transmission in successive generations</strong> is consistent with Y-linked inheritance.</p>
+    </div>
+  </div>
+
+  <h3>Quick Comparison: How Do We Tell Them Apart?</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Clue in the Pedigree</th><th>Likely Pattern</th></tr></thead>
+      <tbody>
+        <tr><td>Trait appears in successive generations; father-to-son transmission occurs</td><td><strong>Autosomal dominant</strong></td></tr>
+        <tr><td>Unaffected parents have an affected child</td><td><strong>Autosomal recessive</strong></td></tr>
+        <tr><td>Affected father has all affected daughters but no affected sons (with an unaffected mother)</td><td><strong>X-linked dominant</strong></td></tr>
+        <tr><td>More males are affected; no father-to-son transmission</td><td><strong>X-linked recessive</strong></td></tr>
+        <tr><td>Affected father passes the trait to all sons and no daughters</td><td><strong>Y-linked</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box red">
+    <div class="box-title">⚠️ Caution</div>
+    <p style="margin-bottom:0">A single clue is not always conclusive. Use the <strong>whole pedigree</strong>, possible genotypes, and family relationships to identify the <strong>most likely</strong> inheritance pattern.</p>
+  </div>
+
+  <h3>Additional Terms</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Complete penetrance:</strong> Everyone with the relevant genotype expresses the trait.</li>
+      <li><strong>Incomplete penetrance:</strong> Some individuals with the relevant genotype do not express the trait.</li>
+      <li><strong>Hemizygous:</strong> Having only one copy of a particular gene, as is typical for many X-linked genes in males.</li>
+    </ul>
+  </div>
+
+  <h3>Pedigree Problem-Solving Steps</h3>
+  <div class="card">
+    <ol>
+      <li><strong>Identify the most likely inheritance pattern.</strong></li>
+      <li><strong>Assign possible genotypes to family members.</strong></li>
+      <li><strong>Determine the probability of each parent passing on an allele.</strong></li>
+      <li><strong>Multiply the probabilities</strong> of independent events when both are required.</li>
+    </ol>
+    <div class="box blue" style="margin-bottom:0">
+      <div class="box-title">🔬 Worked Example</div>
+      <p>Two carrier parents have a child. What is the probability that the child is affected by an autosomal recessive condition?</p>
+      <p><em>Aa</em> × <em>Aa</em> → P(<em>aa</em>) = 1/2 × 1/2 = <strong>1/4 = 25%</strong></p>
+    </div>
+    <div class="box amber" style="margin-bottom:0">
+      <div class="box-title">🔬 Advanced Example</div>
+      <p style="margin-bottom:0">If each of two parents has a <strong>1/3 probability of being a carrier</strong>, the probability that both are carriers and have an affected child is:</p>
+      <p style="margin-top:.4rem; margin-bottom:0">1/3 × 1/3 × 1/4 = <strong>1/36</strong></p>
+      <p style="margin-top:.3rem; margin-bottom:0"><em>This assumes the parents' carrier probabilities are independent and that the condition follows the stated autosomal recessive model.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 10: PRACTICE PROBLEMS                                  -->
 <!-- ============================================================ -->
 <section id="practice">
-  <h2><span class="num">9</span> Practice Problems (from the Modules)</h2>
+  <h2><span class="num">10</span> Practice Problems (from the Modules)</h2>
 
   <div class="problem">
     <div class="q">1. A rooster with gray feathers is mated with a hen of the same phenotype. Among their offspring, 15 chicks are gray, 6 are black, and 8 are white. What is the simplest explanation for the inheritance of these colors?</div>
     <details>
       <summary>Show Solution</summary>
       <div class="solution">
-        <div class="step">The ratio is approximately 15:6:8, which simplifies to roughly <strong>2:1:1</strong> (or 1:2:1).</div>
+        <div class="step">The ratio is approximately <strong>1:2:1</strong> (roughly 15:6:8 → simplifies to 2:1:1).</div>
         <div class="step">This is the classic <strong>1:2:1 phenotypic ratio</strong> seen in <strong>incomplete dominance</strong> or <strong>codominance</strong>.</div>
-        <div class="step">The gray heterozygote (e.g., <em>BW</em>) is intermediate (incomplete dominance) or expresses both traits (codominance) between black (<em>BB</em>) and white (<em>WW</em>).</div>
+        <div class="step">The gray heterozygote is intermediate (incomplete dominance) or expresses both traits (codominance) between black and white.</div>
       </div>
     </details>
   </div>
@@ -1037,9 +1314,7 @@ Gene 1          Gene 2          Phenotype &amp; Probability
       <summary>Show Solution</summary>
       <div class="solution">
         <div class="step">Cross: <em>AaTtRr</em> × <em>AaTtRr</em></div>
-        <div class="step">Probability of <em>AA</em> = 1/4</div>
-        <div class="step">Probability of <em>TT</em> = 1/4</div>
-        <div class="step">Probability of <em>RR</em> = 1/4</div>
+        <div class="step">Probability of <em>AA</em> = 1/4; P(<em>TT</em>) = 1/4; P(<em>RR</em>) = 1/4</div>
         <div class="step">Using the multiplication rule (AND): 1/4 × 1/4 × 1/4 = <strong>1/64</strong></div>
       </div>
     </details>
@@ -1050,8 +1325,7 @@ Gene 1          Gene 2          Phenotype &amp; Probability
     <details>
       <summary>Show Solution</summary>
       <div class="solution">
-        <div class="step">P(<em>g</em> from Parent 1) = 1/2</div>
-        <div class="step">P(<em>g</em> from Parent 2) = 1/2</div>
+        <div class="step">P(<em>g</em> from Parent 1) = 1/2; P(<em>g</em> from Parent 2) = 1/2</div>
         <div class="step">P(<em>gg</em>) = 1/2 × 1/2 = <strong>1/4 (25%)</strong></div>
       </div>
     </details>
@@ -1164,13 +1438,61 @@ Gene 1          Gene 2          Phenotype &amp; Probability
       </div>
     </details>
   </div>
+
+  <div class="problem">
+    <div class="q">13. Two unaffected parents have an affected daughter and an affected son. Which pattern is most consistent with the pedigree?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Answer: Autosomal recessive (B)</b></div>
+        <div class="step">Unaffected carrier parents (<em>Aa</em> × <em>Aa</em>) can have affected children (<em>aa</em>) of <strong>either sex</strong>.</div>
+        <div class="step">If it were X-linked recessive, an affected daughter would require the father to be affected (he is not).</div>
+        <div class="step">If it were X-linked dominant, at least one parent would have to be affected.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">14. A woman is a carrier for an X-linked recessive condition. The father is unaffected. What is the probability that a son will be affected?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Answer: 50% (C)</b></div>
+        <div class="step">Each son has a one-half chance of inheriting the affected X chromosome from his carrier mother.</div>
+        <div class="step">Cross: X<sup>H</sup>X<sup>h</sup> × X<sup>H</sup>Y → sons: 50% X<sup>H</sup>Y (unaffected), 50% X<sup>h</sup>Y (affected).</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">15. An affected father and an unaffected mother have four daughters, all of whom inherit the dominant allele. None of their sons inherit the allele from their father. Which pattern best explains this result?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Answer: X-linked dominant (C)</b></div>
+        <div class="step">An affected father passes his X chromosome to <strong>every daughter</strong> and his Y chromosome to <strong>every son</strong>.</div>
+        <div class="step">Daughters: X<sup>D</sup>X<sup>d</sup> → affected. Sons: X<sup>d</sup>Y → unaffected.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="problem">
+    <div class="q">16. Two carrier parents have a child. What is the probability that the child is affected by an autosomal recessive condition?</div>
+    <details>
+      <summary>Show Solution</summary>
+      <div class="solution">
+        <div class="step"><b>Cross:</b> <em>Aa</em> × <em>Aa</em></div>
+        <div class="step">P(<em>aa</em>) = 1/2 × 1/2 = 1/4 = <strong>25%</strong></div>
+      </div>
+    </details>
+  </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- SECTION 10: FLASHCARDS                                         -->
+<!-- SECTION 11: FLASHCARDS                                         -->
 <!-- ============================================================ -->
 <section id="flashcards">
-  <h2><span class="num">10</span> Flashcards</h2>
+  <h2><span class="num">11</span> Flashcards</h2>
   <p>Click a card to flip it. Use the buttons to flip all cards or shuffle.</p>
 
   <div class="flashcard-controls">
@@ -1742,14 +2064,154 @@ Gene 1          Gene 2          Phenotype &amp; Probability
       </div>
     </div>
 
+    <!-- CARD 41: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Analysis</div>
+          <div class="fc-q">What is pedigree analysis?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">The study of a family tree to determine how a trait or genetic condition is inherited across generations. It allows geneticists to trace inheritance <strong>without conducting genetic crosses on humans</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 42: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Symbols</div>
+          <div class="fc-q">What do squares and circles represent in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Square</strong> = Male<br><strong>Circle</strong> = Female<br><br><strong>Shaded</strong> = affected<br><strong>Unshaded</strong> = unaffected</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 43: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Patterns</div>
+          <div class="fc-q">What is the key clue for autosomal dominant inheritance in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Trait appears in <strong>successive generations</strong>; an affected individual usually has an <strong>affected parent</strong>; <strong>father-to-son transmission is possible</strong>; males and females affected at similar rates.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 44: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Patterns</div>
+          <div class="fc-q">What is the key clue for autosomal recessive inheritance in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Unaffected parents can have an affected child.</strong> The trait may <strong>skip generations</strong>. Males and females are affected at similar rates.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 45: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Patterns</div>
+          <div class="fc-q">What is the key clue for X-linked dominant inheritance in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Affected father → ALL daughters affected; NO sons affected</strong> (when the mother is unaffected). This is because a father passes his X chromosome to all daughters and his Y to all sons.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 46: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Patterns</div>
+          <div class="fc-q">What is the key clue for X-linked recessive inheritance in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>More males than females are affected.</strong> No father-to-son transmission. An affected son may inherit the allele from an <strong>unaffected carrier mother</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 47: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Patterns</div>
+          <div class="fc-q">What is the key clue for Y-linked inheritance in a pedigree?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Father → son transmission only.</strong> Daughters are never affected. The trait appears in every male descendant of an affected father.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 48: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Terms</div>
+          <div class="fc-q">What is the difference between complete and incomplete penetrance?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><strong>Complete penetrance:</strong> Everyone with the relevant genotype expresses the trait.<br><br><strong>Incomplete penetrance:</strong> Some individuals with the relevant genotype do <em>not</em> express the trait.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 49: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Terms</div>
+          <div class="fc-q">What does "hemizygous" mean?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a">Having only <strong>one copy</strong> of a particular gene, as is typical for many X-linked genes in males.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 50: PEDIGREE -->
+    <div class="flashcard" tabindex="0" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-face flashcard-front">
+          <div class="fc-label">Pedigree Problem Solving</div>
+          <div class="fc-q">Two carrier parents have a child. What is the probability that the child is affected by an autosomal recessive condition?</div>
+          <div class="fc-hint">Tap to flip →</div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <div class="fc-a"><em>Aa</em> × <em>Aa</em><br><br>P(<em>aa</em>) = 1/2 × 1/2 = <strong>1/4 (25%)</strong></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 </main>
 
 <footer>
-  <p>Biology 2 FA Study Guide · Philippine Science High School System · Q2 Modules 1 &amp; 2</p>
-  <p>Based on Q2.M1 Mendelian Inheritance and Q2.M2 Extensions of Mendelian Genetics</p>
+  <p>Biology 2 FA Study Guide · Philippine Science High School System · Q2 Modules 1, 2 &amp; 3</p>
+  <p>Based on Q2.M1 Mendelian Inheritance, Q2.M2 Extensions of Mendelian Genetics, and Q2.M3 Pedigree Analysis</p>
 </footer>
 
 <script>
